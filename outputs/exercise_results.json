@@ -1,0 +1,310 @@
+{
+  "versions": {
+    "Python": "3.12.3",
+    "NumPy": "2.4.4",
+    "Pandas": "3.0.2",
+    "SciPy": "1.17.1",
+    "statsmodels": "0.15.0",
+    "scikit-learn": "1.8.0",
+    "LightGBM": "4.7.0",
+    "Matplotlib": "3.10.8",
+    "Seaborn": "0.13.2"
+  },
+  "a1_speedup": 15.654507191124154,
+  "a2_explained": [
+    0.6884,
+    0.1931,
+    0.0913,
+    0.0271
+  ],
+  "a3_slope": [
+    49.68556640610011,
+    46.86578472813068,
+    52.61668009245679
+  ],
+  "b2": {
+    "cagr": 0.1279283522401482,
+    "peak_month": "July",
+    "peak_factor": 1.2265555429312014,
+    "trough_factor": 0.8011780824134744,
+    "mape_naive": 15.523355162420376,
+    "mape_hw": 6.391028288101778
+  },
+  "d1": {
+    "F": 343.626275205481,
+    "p": 2.8923681333772844e-82,
+    "eta2": 0.6696719536879615,
+    "tukey_significant_pairs": 2
+  },
+  "d2": {
+    "r2": 0.866888356233088,
+    "adj_r2": 0.8652650435042233,
+    "shapiro_p": 0.8168613306077693,
+    "bp_p": 0.06006806938307142,
+    "flipper_coef": 20.024915430293074,
+    "male_coef": 530.3810944867002
+  },
+  "d3": {
+    "diff": 805.0946862634255,
+    "p": 0.0001
+  },
+  "e1": [
+    {
+      "model": "Dummy (majority)",
+      "accuracy": 0.504,
+      "acc_sd": 0.004,
+      "roc_auc": 0.5,
+      "auc_sd": 0.0
+    },
+    {
+      "model": "Logistic regression",
+      "accuracy": 0.912,
+      "acc_sd": 0.035,
+      "roc_auc": 0.97,
+      "auc_sd": 0.02
+    },
+    {
+      "model": "Random forest",
+      "accuracy": 0.911,
+      "acc_sd": 0.044,
+      "roc_auc": 0.969,
+      "auc_sd": 0.022
+    },
+    {
+      "model": "LightGBM",
+      "accuracy": 0.91,
+      "acc_sd": 0.039,
+      "roc_auc": 0.971,
+      "auc_sd": 0.019
+    }
+  ],
+  "e2": {
+    "best_C": 100.0,
+    "best_auc": 0.9731756063306864
+  },
+  "e3": {
+    "leaky": 0.86,
+    "honest": 0.58
+  },
+  "n_checks": 31,
+  "n_passed": 31,
+  "checks": [
+    {
+      "exercise": "A1",
+      "tool": "NumPy",
+      "check": "broadcast result equals loop result and SciPy cdist",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "A1",
+      "tool": "NumPy",
+      "check": "vectorised version is clearly faster than the loop (conservative bound: 5x; timing is machine-dependent)",
+      "passed": true,
+      "detail": "16x (0.23s vs 0.0148s)"
+    },
+    {
+      "exercise": "A2",
+      "tool": "NumPy",
+      "check": "explained variance matches sklearn PCA",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "A2",
+      "tool": "NumPy",
+      "check": "principal axes match sklearn up to sign",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "A2",
+      "tool": "NumPy",
+      "check": "PC scores are uncorrelated",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "A3",
+      "tool": "NumPy",
+      "check": "lstsq coefficients match scikit-learn",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "A3",
+      "tool": "NumPy",
+      "check": "bootstrap CI brackets the least-squares slope",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "B1",
+      "tool": "Pandas",
+      "check": "no missing values remain in the measurement columns",
+      "passed": true,
+      "detail": "342 rows kept of 344"
+    },
+    {
+      "exercise": "B1",
+      "tool": "Pandas",
+      "check": "within-species z-scores have mean 0 and std 1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "B1",
+      "tool": "Pandas",
+      "check": "crosstab grand total equals number of rows",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "B1",
+      "tool": "Pandas",
+      "check": "validated many-to-one merge keeps row count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "B2",
+      "tool": "Pandas/statsmodels",
+      "check": "multiplicative seasonal factors average to 1",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "B2",
+      "tool": "Pandas",
+      "check": "series is complete monthly data (144 points, no gaps)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "B2",
+      "tool": "statsmodels",
+      "check": "Holt-Winters beats the seasonal-naive baseline",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "B3",
+      "tool": "SQL",
+      "check": "SQL and pandas aggregates agree on every group",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "B3",
+      "tool": "SQL",
+      "check": "window-function ranks agree with pandas ranks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "C1",
+      "tool": "Seaborn",
+      "check": "faceted figure saved with one panel per island",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "C2",
+      "tool": "Matplotlib",
+      "check": "multi-panel figure saved",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "C3",
+      "tool": "Seaborn",
+      "check": "regression and PCA figure saved",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "D1",
+      "tool": "SciPy",
+      "check": "species explains a large share of body-mass variance (eta2 > 0.5)",
+      "passed": true,
+      "detail": "eta2 = 0.67"
+    },
+    {
+      "exercise": "D1",
+      "tool": "statsmodels",
+      "check": "Tukey HSD finds exactly 2 of 3 species pairs differ (Adelie and Chinstrap are similar)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "D2",
+      "tool": "statsmodels",
+      "check": "model explains most variance (R2 > 0.85)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "D2",
+      "tool": "statsmodels",
+      "check": "male coefficient is positive and significant",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "D3",
+      "tool": "SciPy",
+      "check": "permutation test confirms males are heavier (p < 0.001)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "E1",
+      "tool": "scikit-learn",
+      "check": "logistic regression beats the majority baseline by > 0.3 accuracy",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "E1",
+      "tool": "scikit-learn",
+      "check": "best model reaches ROC-AUC > 0.95 under repeated CV",
+      "passed": true,
+      "detail": "0.971"
+    },
+    {
+      "exercise": "E2",
+      "tool": "scikit-learn",
+      "check": "grid search finds a C at least as good as the default",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "E3",
+      "tool": "scikit-learn",
+      "check": "leaky evaluation is inflated far above chance on pure noise",
+      "passed": true,
+      "detail": "0.86"
+    },
+    {
+      "exercise": "E3",
+      "tool": "scikit-learn",
+      "check": "in-pipeline evaluation stays near chance (0.35-0.65)",
+      "passed": true,
+      "detail": "0.58"
+    },
+    {
+      "exercise": "E4",
+      "tool": "scikit-learn",
+      "check": "custom Winsorizer works inside ColumnTransformer + Pipeline",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "exercise": "E4",
+      "tool": "scikit-learn",
+      "check": "validation score is within 0.05 of training score (low overfitting)",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}
